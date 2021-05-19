@@ -1,0 +1,46 @@
+.search {
+    
+
+    input {
+        width: 100%;
+        padding: 1rem 0rem;
+        text-indent: 20px;
+        font-size: 1rem;
+        border-radius: 50px;
+        outline: none;
+        margin-bottom: 2rem;
+        
+    }
+
+
+    .user-list {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-gap: 20px;
+
+        .user-unit {
+            text-align: center;
+            img {
+                width: 80px;
+                border-radius: 50px;
+            }
+
+            h1 {
+                font-size: 1.2rem;
+                margin-bottom: .5rem;
+            }
+
+            p {
+                margin-bottom: 1rem;
+            }
+
+            button {
+                display: inline-block;
+                background: #1DA1F2; 
+                color: white;
+                padding: 1rem 3rem;
+                border-radius: 50px;
+            }
+        }
+    }
+}

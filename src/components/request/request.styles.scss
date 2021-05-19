@@ -1,0 +1,32 @@
+.user-wrapper {
+
+    text-align: center;
+    img {
+        width: 250px;
+        max-width: 90%;
+        margin: 0 auto 2rem;
+        cursor: pointer;
+    }
+
+    h2 {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+    }
+
+    .button-wrapper {
+
+        button {
+            padding: 1rem 4rem;
+            background: black;
+            color: white;
+            &.accept {
+                background: rgb(38, 98, 38);
+                margin-right: 1rem;
+            }
+
+            &.delete {
+                background: rgb(175, 53, 53);
+            }
+        }
+    }
+}
