@@ -59,19 +59,19 @@ class Request extends React.Component {
 
         userRef.then(snapshot => {
 
-            let { followers } = snapshot.data();
+            let { following } = snapshot.data();
 
-            if (!followers) {
-                followers = []
+            if (!following) {
+                following = []
             }
 
-            followers.push(data.requestDetails.id);
+            following.push(data.requestDetails.id);
 
             //add followers to userData
 
             const dataToSubmit = {
                 ...snapshot.data(),
-                followers
+                following
             };
 
             // will refactor later

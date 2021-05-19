@@ -11,7 +11,7 @@ import Request from "./components/request/requrest.component"
 
 //  redux stuff
  import { connect } from "react-redux"
- import { setCurrentUser } from "./redux/user/user.actions"
+ import { setCurrentUser, getUsersAsync } from "./redux/user/user.actions"
 
  import {  auth, createUserProfile, firestore } from "./firebase/firebase.utils"
 
@@ -24,7 +24,9 @@ import Request from "./components/request/requrest.component"
 
       componentDidMount() {
 
-            
+            // get users
+
+            this.props.dispatch(getUsersAsync())
 
             // when there are changes in authentication
             auth.onAuthStateChanged(  async user => {
@@ -41,9 +43,18 @@ import Request from "./components/request/requrest.component"
                               }
 
 
-                              createUserProfile(userData)
+                         const { userRef } =  await createUserProfile(userData)
 
-                              this.props.dispatch(setCurrentUser(userData))
+                         userRef.onSnapshot( snapshot => {
+
+                              this.props.dispatch(setCurrentUser({
+                                    id: snapshot.id,
+                                    ...snapshot.data()
+                              }));
+
+                         })
+
+                              // this.props.dispatch(setCurrentUser(userData))
 
                                
                         } else {
